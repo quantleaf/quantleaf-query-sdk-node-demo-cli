@@ -2,7 +2,7 @@
 This is a small CLI App to demo Quantleaf Query. The CLI behaves like a search field, but the response will be how the query was intepreted.
 Look at the demo output below.
 
-![Demo output for a Ticket shop](/../master/output.PNG?raw=true)
+![Demo output for a Ticket shop](/../master/demo.PNG?raw=true)
 
 ## Get started
 Clone the repo 
