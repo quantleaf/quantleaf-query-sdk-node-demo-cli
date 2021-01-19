@@ -1,0 +1,24 @@
+{
+  "name": "@quantleaf/node-cli-demo",
+  "version": "1.0.0",
+  "description": "A small CLI app to demo Quantleaf Query for a few DB schemas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Quantleaf Query"
+  ],
+  "author": "quantleaf",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.14.21",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "@quantleaf/query-sdk-node": "^1.0.29",
+    "dotenv": "^8.2.0",
+    "reflect-metadata": "^0.1.13"
+  }
+}
