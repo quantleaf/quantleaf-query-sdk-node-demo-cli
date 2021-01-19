@@ -1,5 +1,5 @@
 # Quantleaf Query CLI Demo App
-This is a small CLI App to demo Quantleaf Query. The CLI behaves like a search field, but the response will be how the query was intepreted.
+This is a small CLI App to demo Quantleaf Query. The CLI behaves like a search field, but the response will describe how the query was interpreted.
 Look at the demo output below.
 
 ![Demo output for a Ticket shop](/../master/demo.PNG?raw=true)
