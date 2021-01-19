@@ -1,6 +1,6 @@
 # Quantleaf Query CLI Demo App
 
-![Demo output for a Ticket shop](output.PNG)
+![Demo output for a Ticket shop](/../master/output.PNG?raw=true)
 
 ## Get started
 Clone the repo 
