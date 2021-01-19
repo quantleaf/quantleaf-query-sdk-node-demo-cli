@@ -5,8 +5,8 @@ Look at the demo output below.
 ![Demo output for a Ticket shop](/../master/demo.PNG?raw=true)
 
 ## Get started
-Clone the repo 
-Create an .env file, with the format of .env.sample with an API Key (Request one at [account.quantleaf.com](https://account.quantleaf.com))
+1. Clone the repo.
+2. Create an .env file, with the format of .env.sample with an API Key (Request one at [account.quantleaf.com](https://account.quantleaf.com))
 
 ## Install
 ```
