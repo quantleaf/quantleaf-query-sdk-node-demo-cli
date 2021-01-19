@@ -27,38 +27,22 @@ config(process.env.API_KEY)
  * You can manage the the search experience by modifying what schemas to search here
  */
 
-// For a "Ticket shop", example "Buy a ticket from stockholm to rome for price less than 1000 bucks first class"
+// For a "Ticket shop", 
+// example "Buy a ticket from stockholm to rome for price less than 1000 bucks first class"
 const SCHEMAS_TO_USE = [new TrainTicket(), new FerryTicket(), new AirplaneTicket()];
 
-// Or for a "Recipe search", example "Easy east asian fruity dessert that takes less than 30 minutes to make for new years"
+// Or for a "Recipe search", 
+// example "Easy east asian fruity dessert that takes less than 30 minutes to make for new years"
 
 // const SCHEMAS_TO_USE = [new Recipe()];
 
-
 // Setup how to handle incoming CLI input (the call back)
-const inputCallback = async (input: string) => printAny(await handleSearchRequest(input));
+const inputCallback = async (input: string) => console.log(await handleSearchRequest(input));
 
 // Start the CLI loop
 const cliQuestion = 'Search on ' + SCHEMAS_TO_USE.map(schema => (schema as object).constructor.name).join(', ')
 cliLoop(inputCallback, cliQuestion)
 
-
-
-
-
-/**
- * The true output from the translation request is not that readable
- * hence we create this
- */
-export interface ReadableResult {
-    unknownReadable: string[];
-    queryReadable: string[];
-    suggestions: string[];
-}
-
-const printAny = (input: any) => {
-    console.log(JSON.stringify(input,null,2));
-}
 
 /**
  * This function would correndspond to an REST endpoint, 
@@ -66,7 +50,7 @@ const printAny = (input: any) => {
  * @param input 
  */
 
-const handleSearchRequest = async (input: string): Promise<QueryResultReadable> => {
+const handleSearchRequest = async (input: string): Promise<string> => {
     // The translation, potentielly we retrieve some query
     const translatedQuery: QueryResponse = await translate(input, SCHEMAS_TO_USE, { query: {}, suggest: {} });
 
@@ -74,7 +58,7 @@ const handleSearchRequest = async (input: string): Promise<QueryResultReadable> 
      *  We do not have any database connected,
      *  but if we had we would convert our translatedQuery
      *  into a database request here, and perform it.
-     *  Now we just return the response to show it!
+     *  Now we just return a readable response to show it!
      */
     return convertToReadable(input, translatedQuery);
 }
@@ -84,20 +68,25 @@ const handleSearchRequest = async (input: string): Promise<QueryResultReadable> 
  * @param input 
  * @param response 
  */
-const convertToReadable = (input:string, response: QueryResponse): QueryResultReadable => {
-    return {
-        query: getQueryResultReadable(response),
-        suggestions: response.suggest?.map(s =>  s.text.trim()).slice(0,10).join(', '), 
-        unknowns: response.unknown?.map(u=> `... ${input.slice(u.offset,u.offset + u.length)} ... `).join(', ')
-    }
+const convertToReadable = (input:string, response: QueryResponse): string => {
+    const query = getQueryResultReadable(response);
+    const suggestions = response.suggest?.map(s =>  s.text.trim()).slice(0,10).join(', ');
+    const unknowns = response.unknown?.map(u=> `... ${input.slice(u.offset,u.offset + u.length)} ... `).join(', ');
+    
+    const ret = ['--- Result ---\n'];
+    ret.push('Query:');
+    ret.push(query)
+    ret.push('\n');
+    ret.push('Suggestions:');
+    ret.push(suggestions);
+    ret.push('\n');
+    ret.push('Unknowns:');
+    ret.push(unknowns);
+    ret.push('\n');
+    return ret.join('\n');
+
 }
 
-
-interface QueryResultReadable {
-    query: string;
-    suggestions: string;
-    unknowns: string;
-}
 
 
 /**
