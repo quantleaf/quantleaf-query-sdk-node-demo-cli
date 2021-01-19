@@ -4,17 +4,17 @@ Look at the demo output below.
 
 ![Demo output for a Ticket shop](/../master/demo.PNG?raw=true)
 
-## Get started
+## How to run
 1. Clone the repo.
 2. Create an .env file, with the format of .env.sample with an API Key (Request one at [account.quantleaf.com](https://account.quantleaf.com))
 
-## Install
+3. Install dependencies
 ```
 npm install 
 npm install reflect-metadata
 ```
 
-## Build and run
+4. Build and run
 ```
 tsc
 node dist/index.js
