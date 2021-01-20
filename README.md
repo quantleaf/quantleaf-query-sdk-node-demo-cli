@@ -26,4 +26,4 @@ node dist/index.js
 ## Change the search experience
 
 You can modify the schemas inside the *schemas* folder, or create new ones. 
-Make sure to modify *SCHEMAS_TO_USE* if you want to change the schemas you are searching on.
+Make sure to modify *SCHEMAS_TO_USE* variable in the *index.ts* file if you want to change the schemas you are searching on.
