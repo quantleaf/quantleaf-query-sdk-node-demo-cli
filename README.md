@@ -1,5 +1,7 @@
 # Quantleaf Query CLI Demo App
-This is a small CLI App to demo Quantleaf Query. The CLI behaves like a search field, but the response will describe how the query was interpreted.
+This is a small CLI App to demo Quantleaf Query to reproduce some of the demos available on [query.quantleaf.com](https://query.quantleaf.com).
+
+The CLI is used like a search field, but the response will describe how the query was interpreted.
 Look at the demo output below.
 
 ![Demo output for a Ticket shop](/../master/demo.PNG?raw=true)
@@ -11,7 +13,6 @@ Look at the demo output below.
 3. Install dependencies
 ```
 npm install 
-npm install reflect-metadata
 ```
 
 4. Build and run
