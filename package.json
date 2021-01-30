@@ -12,7 +12,7 @@
   "author": "quantleaf",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^14.14.21",
+    "@types/node": "^14.14.22",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
